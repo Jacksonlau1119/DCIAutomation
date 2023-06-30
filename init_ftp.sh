@@ -1,1 +1,1 @@
-python planner/main.py --dci_dir ./dci --ftp --initial && python  && python bronze_worker/main.py --dci_dir ./dci
+python planner/main.py --dci_dir ./dci --ftp --initial  && python bronze_worker/main.py --dci_dir ./dci
