@@ -51,8 +51,8 @@ def arguments():
 def create_server_conn(server='35.182.148.237',
                        database = 'DEV_DCI'):
     
-    username = os.environ['SQL_USERNAME']
-    password = os.environ['SQL_PWD']
+    username = os.environ['AIRFLOW_VAR_USERNAME']
+    password = os.environ['AIRFLOW_VAR_PWD']
     # Create the connection string
     connection_string = f"DRIVER=ODBC Driver 17 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password}"
     
@@ -88,13 +88,13 @@ def scan_json(json_path, mp):
 def create_creds(server='35.182.148.237',
                        database = 'DEV_DCI'):
     
-    username = os.environ['SQL_USERNAME']
-    password = os.environ['SQL_PWD']
+    username = os.environ['AIRFLOW_VAR_USERNAME']
+    password = os.environ['AIRFLOW_VAR_PWD']
     # Create the connection string
     
     return bcpandas.SqlCreds(server, database, username, password)
 
-def upload_data(path, max_retries=3, retry_delay=3, drop=False):
+def upload_data(path, max_retries=3, retry_delay=3, drop=True):
     retry_count = 0
     success = False
     

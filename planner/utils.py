@@ -122,8 +122,8 @@ def files_to_unzip_ftp(
     ftp_dci_dir='/dci',
     ip='35.182.148.237'):
     
-    user = os.environ['FTP_USERNAME']
-    passwd = os.environ['FTP_PWD']
+    user = os.environ['AIRFLOW_VAR_USERNAME']
+    passwd = os.environ['AIRFLOW_VAR_PWD']
     
     files_to_unzip = []
     
