@@ -1,4 +1,4 @@
-bcpandas==2.4.0
+bcpandas
 pandas==1.5.3
 pyodbc==4.0.39
 SQLAlchemy==1.4.39
