@@ -1,5 +1,5 @@
 bcpandas==2.4.0
-pandas==2.0.2
+pandas==1.5.3
 pyodbc==4.0.39
-SQLAlchemy==2.0.16
+SQLAlchemy==1.4.39
 tqdm==4.64.1
