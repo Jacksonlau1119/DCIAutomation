@@ -1,6 +1,7 @@
 from utils import * 
 import json
 from datetime import datetime, date
+import os
 
 def main():
     args = arguments()
@@ -31,7 +32,7 @@ def main():
     with open(result_path, "w") as fp:
         json.dump(sorted_dict , fp)
         
-    print("Result:", result_path)
+    print("Result:", os.path.abspath(result_path))
 
 if __name__ == "__main__":
     main()
