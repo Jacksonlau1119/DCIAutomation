@@ -82,4 +82,16 @@ _dict` variable.
 
 - `init_ftp.sh`: This shell script runs the planner and bronzer_worker scripts to upload all brands with the latest data.
 
+- `merge_sliver.sql`: SQL script that concatenates data from multiple tables with a specific suffix into a new table.
+
 - Workflow diagrams can be found [here](https://app.diagrams.net/#G1k1bPGJvw5_0EDjDJcDgfvx3ddAmMgiU_#%7B%22pageId%22%3A%22L1Wit_bGYVjArb1imkON%22%7D).
+
+## Task Tracker
+
+| Task                    | Status      |
+|-------------------------|-------------|
+| Planner                 | Done        |
+| Bronzer Worker          | Done        |
+| Sliver Worker           | In progress |
+| Scheduling              | In progress |
+| Gold Worker             | Not started |
