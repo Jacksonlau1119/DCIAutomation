@@ -94,7 +94,7 @@ def create_creds(server='35.182.148.237',
     
     return bcpandas.SqlCreds(server, database, username, password)
 
-def upload_data(path, max_retries=3, retry_delay=3, drop=False):
+def upload_data(path, max_retries=3, retry_delay=3, drop=True):
     retry_count = 0
     success = False
     
