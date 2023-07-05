@@ -15,9 +15,9 @@ import sqlalchemy
 def pd_read_txt(file_path):
     # Read the file using pandas
     try:
-        df = pd.read_csv(file_path, sep='|', encoding = 'unicode_escape', low_memory=False, on_bad_lines='skip', dtype=str)  
+        df = pd.read_csv(file_path, sep='|', encoding = 'unicode_escape', low_memory=False, on_bad_lines='skip')  
     except:
-        df = pd.read_csv(file_path, sep='|', low_memory=False, dtype=str)
+        df = pd.read_csv(file_path, sep='|', low_memory=False)
     return df
 
 def create_folder(folder_path):
@@ -90,6 +90,7 @@ def create_creds(server='35.182.148.237',
     
     username = os.environ['AIRFLOW_VAR_USERNAME']
     password = os.environ['AIRFLOW_VAR_PWD']
+    print(username, password)
     # Create the connection string
     
     return bcpandas.SqlCreds(server, database, username, password)
