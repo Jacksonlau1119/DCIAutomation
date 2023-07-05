@@ -15,9 +15,9 @@ import sqlalchemy
 def pd_read_txt(file_path):
     # Read the file using pandas
     try:
-        df = pd.read_csv(file_path, sep='|', encoding = 'unicode_escape', low_memory=False, on_bad_lines='skip')  
+        df = pd.read_csv(file_path, sep='|', encoding = 'unicode_escape', low_memory=False, on_bad_lines='skip', dtype=str)  
     except:
-        df = pd.read_csv(file_path, sep='|', low_memory=False)
+        df = pd.read_csv(file_path, sep='|', low_memory=False, dtype=str)
     return df
 
 def create_folder(folder_path):
@@ -94,7 +94,7 @@ def create_creds(server='35.182.148.237',
     
     return bcpandas.SqlCreds(server, database, username, password)
 
-def upload_data(path, max_retries=3, retry_delay=3, drop=True):
+def upload_data(path, max_retries=3, retry_delay=3, drop=False):
     retry_count = 0
     success = False
     
@@ -127,6 +127,8 @@ def upload_data(path, max_retries=3, retry_delay=3, drop=True):
             columns_to_char = [x for x in df.columns if x != 'upload_time']
             # Set the dtype parameter for varchar columns
             dtype_sql = {column: sqlalchemy.types.VARCHAR() for column in columns_to_char}
+            #remove '\.0'
+            df[columns_to_char] =  df[columns_to_char].astype(str).replace('\.0', '', regex=True)
             # Check if the table already exists in the database
             if pd.io.sql.table_exists(table_name, conn):
                 # Append data to the existing table
