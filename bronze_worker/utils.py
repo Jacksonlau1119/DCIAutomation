@@ -90,6 +90,7 @@ def create_creds(server='35.182.148.237',
     
     username = os.environ['AIRFLOW_VAR_USERNAME']
     password = os.environ['AIRFLOW_VAR_PWD']
+    print(username, password)
     # Create the connection string
     
     return bcpandas.SqlCreds(server, database, username, password)
@@ -127,6 +128,8 @@ def upload_data(path, max_retries=3, retry_delay=3, drop=False):
             columns_to_char = [x for x in df.columns if x != 'upload_time']
             # Set the dtype parameter for varchar columns
             dtype_sql = {column: sqlalchemy.types.VARCHAR() for column in columns_to_char}
+            #remove '\.0'
+            df[columns_to_char] =  df[columns_to_char].astype(str).replace('\.0', '', regex=True)
             # Check if the table already exists in the database
             if pd.io.sql.table_exists(table_name, conn):
                 # Append data to the existing table
