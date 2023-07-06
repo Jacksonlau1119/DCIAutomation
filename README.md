@@ -34,9 +34,7 @@
 
 - The results are stored in a dictionary called `time_dict`, where the keys are the ZIP file paths, and the values are the total times.
 
-- The `time_dict` dictionary is sorted in ascending order based on the total times, and the sorted dictionary is stored in the `sorted
-
-_dict` variable.
+- The `time_dict` dictionary is sorted in ascending order based on the total times, and the sorted dictionary is stored in the `sorted_dict` variable.
 
 - The estimated total run time is printed as the sum of all the values in the `sorted_dict` dictionary.
 
